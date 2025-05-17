@@ -1,0 +1,12 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "description": "Playwright test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}
