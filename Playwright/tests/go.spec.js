@@ -27,15 +27,12 @@ test('Login to rahulshettyacademy', async ({ page }) => {
       await addButton.click();
       break;
     }
-  }
-  // Go to cart and wait for navigation
-  await Promise.all([
-    page.waitForNavigation(),
-    page.click('a.nav-link.btn.btn-primary')
-  ]);
-
-  // Wait for cart page to load and verify the product
-  await page.waitForLoadState('networkidle');
+  }  // Go to cart
+  await page.click('a.nav-link.btn.btn-primary');
+  
+  // Wait for cart page to load completely
+  await page.waitForLoadState('networkidle', { timeout: 60000 });
+  await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
   
   // Check if there's a product in the cart
   const productName = await page.textContent('.media-heading');
